@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const Movie = props => {
+	const [isSaved, setIsSaved] = useState(false);
+	const { savedList, setSavedList } = props;
 	const [movie, setMovie] = useState();
 
 	const urlId = useParams();
@@ -22,13 +24,17 @@ const Movie = props => {
 			});
 	}, [urlId]);
 
-	// Uncomment this only when you have moved on to the stretch goals
-
 	if (!movie) {
 		return <div>Loading movie information...</div>;
 	}
 
 	const { title, director, metascore, stars } = movie;
+
+	// Uncomment this only when you have moved on to the stretch goals
+	const saveMovie = () => {
+		setSavedList(savedList.concat(title));
+		console.log(savedList);
+	};
 	return (
 		<div className="save-wrapper">
 			<div className="movie-card">
@@ -47,7 +53,9 @@ const Movie = props => {
 					</div>
 				))}
 			</div>
-			<div className="save-button">Save</div>
+			<div className="save-button" onClick={saveMovie}>
+				Save
+			</div>
 		</div>
 	);
 };

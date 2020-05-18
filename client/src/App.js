@@ -8,7 +8,6 @@ import SavedList from "./Movies/SavedList";
 const App = () => {
 	const [savedList, setSavedList] = useState([]);
 	const [movieList, setMovieList] = useState([]);
-	const [isSaved, setIsSaved] = useState(false);
 
 	useEffect(() => {
 		const getMovies = () => {
@@ -27,13 +26,18 @@ const App = () => {
 	return (
 		<Router>
 			<div>
-				<SavedList list={savedList} isSaved={isSaved} setIsSaved={setIsSaved} />
+				<SavedList list={savedList} />
 				<Route
 					path="/"
 					exact
 					component={() => <MovieList movies={movieList} />}
 				/>
-				<Route path="/movies/:id" component={Movie} />
+				<Route
+					path="/movies/:id"
+					component={() => (
+						<Movie savedList={savedList} setSavedList={setSavedList} />
+					)}
+				/>
 			</div>
 		</Router>
 	);
