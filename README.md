@@ -47,10 +47,10 @@ Topics:
   `/movies/{id of movie here}` to see the details for the selected movie.
 - [ x ] You will need to modify line 13 of `Movie.js` in order to accept the
   correct id for the movie selected.
-- [ ] Add functionality so the `Home` button on the `SavedList` component
-      navigates back to home.
-- [ ] You should now be able to navigate back and forth between the individual
-      movies and the home screen.
+- [ x ] Add functionality so the `Home` button on the `SavedList` component
+  navigates back to home.
+- [ x ] You should now be able to navigate back and forth between the individual
+  movies and the home screen.
 
 ## Stretch Goals
 
