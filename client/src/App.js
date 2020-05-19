@@ -30,7 +30,13 @@ const App = () => {
 				<Route
 					path="/"
 					exact
-					component={() => <MovieList movies={movieList} />}
+					component={() => (
+						<MovieList
+							movies={movieList}
+							savedList={savedList}
+							setSavedList={setSavedList}
+						/>
+					)}
 				/>
 				<Route
 					path="/movies/:id"

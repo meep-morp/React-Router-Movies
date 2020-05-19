@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const Movie = props => {
-	const [isSaved, setIsSaved] = useState(false);
+	let [isSaved, setIsSaved] = useState(false);
 	const { savedList, setSavedList } = props;
 	const [movie, setMovie] = useState();
 
@@ -31,13 +31,19 @@ const Movie = props => {
 	const { title, director, metascore, stars } = movie;
 
 	// Uncomment this only when you have moved on to the stretch goals
-	const saveMovie = () => {
-		setSavedList(savedList.concat(title));
-		console.log(savedList);
+	const saveMovie = event => {
+		if (isSaved === false) {
+			setIsSaved(true);
+			setSavedList(savedList.concat({ title, id: movie.id }));
+		} else {
+			console.log("Already saved!");
+		}
+		console.log(isSaved);
 	};
+
 	return (
 		<div className="save-wrapper">
-			<div className="movie-card">
+			<div>
 				<h2>{title}</h2>
 				<div className="movie-director">
 					Director: <em>{director}</em>
