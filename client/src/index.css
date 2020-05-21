@@ -11,9 +11,10 @@ body {
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
   padding: 1rem;
-  cursor: pointer;
+  cursor: grab;
   position: relative;
   margin: 1rem auto;
+  user-select: none;
 }
 
 .movie-director {
@@ -42,6 +43,11 @@ body {
 
 .saved-movie {
   margin: 0 10px;
+  background-color: rgb(173, 181, 185);
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 5px black, 0 0 5px black;
 }
 .saved-active {
   color: blue;
@@ -69,4 +75,13 @@ body {
 .home-button {
   padding: 5px 10px;
   background-color: lightskyblue;
+}
+
+.dragged {
+  opacity: 0.5;
+}
+
+.highlight{
+  transition: 0.3s ease;
+  background-color: rgba(138, 221, 221, 0.377);
 }
